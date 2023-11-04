@@ -1,0 +1,28 @@
+pipeline {
+  agent any
+
+  stages {
+    
+      stage('Code checkout') {
+      steps {
+        
+        git 'https://github.com/20payal/javapipeline.git'
+      }
+
+    }
+    stage('Build') {
+      steps {
+        
+        sh 'javac sample_code'
+      }
+
+    }
+    stage('Deploy') {
+      steps {
+        
+        sh 'java sample_code'
+
+      }
+    }
+  }
+}
